@@ -1,0 +1,43 @@
+{
+  "name": "buymy.sh",
+  "version": "0.1.0",
+  "description": "An app for entrepreneurs who want to market their goods on their own website",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "tdd": "mocha -w -R nyan",
+    "start": "node .",
+    "watch": "nodemon ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fblanton/buymy.sh.git"
+  },
+  "keywords": [
+    "mongodb",
+    "expressjs",
+    "angular",
+    "nodejs"
+  ],
+  "author": "Forrest Blanton",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fblanton/buymy.sh/issues"
+  },
+  "homepage": "https://github.com/fblanton/buymy.sh#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2"
+  },
+  "dependencies": {
+    "babel-eslint": "6.1.2",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongodb": "^2.2.11",
+    "request": "^2.75.0",
+    "eslint": "3.6.1",
+    "lintspaces-cli": "0.4.0",
+    "stylelint": "7.3.1",
+    "stylelint-config-standard": "13.0.2"
+  }
+}

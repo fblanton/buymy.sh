@@ -60,4 +60,44 @@ describe('buymy.sh', function() {
       })
     })
   })
+
+  describe('GET /ops', () => {
+    it('returns a list of all shops', done => {
+      request.get(TEST_URL + '/ops', (err, res, body) => {
+        const result = JSON.parse(body);
+        expect(err).to.be.null;
+        expect(result[0]).to.include(sampleShops.preload[0]);
+        expect(result[1]).to.include(sampleShops.preload[1]);
+        done()
+      })
+    })
+  })
+
+  describe('GET /ops/shopName', () => {
+    it('returns a single shop by name', done => {
+      const sampleShop = sampleShops.preload[0];
+      const { shopName } = sampleShop;
+      request.get(TEST_URL + '/ops/' + shopName, (err, res, body) => {
+        const result = JSON.parse(body);
+        expect(err).to.be.null;
+        expect(result).to.include(sampleShop);
+        done()
+      })
+    })
+  })
+
+  describe('GET /ops/shopId', () => {
+    it('returns a single shop by id', done => {
+      const sampleShop = sampleShops.preload[0];
+      const { shopId } = sampleShop;
+      request.get(TEST_URL + '/ops/' + shopId, (err, res, body) => {
+        const result = JSON.parse(body);
+        expect(err).to.be.null;
+        expect(result).to.include(sampleShop);
+        done()
+      })
+    })
+  })
+
+
 })

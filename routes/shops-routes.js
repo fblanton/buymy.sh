@@ -26,5 +26,31 @@ module.exports = db => {
     })
   })
 
+  router.get('/', (req, res, next) => {
+    shops
+      .find({})
+      .toArray()
+      .then(result => res.json(result))
+      .catch(next)
+  })
+
+  router.get('/:identifier', (req, res, next) => {
+    let { identifier } = req.params;
+    let searchKey;
+    
+    if (Number(identifier)) {
+      searchKey = 'shopId';
+      identifier = Number(identifier)
+    } else {
+      searchKey = 'shopName';
+    }
+
+    shops
+      .find({ [searchKey]: identifier })
+      .toArray()
+      .then(result => res.json(result[0]))
+      .catch(next)
+  })
+
   return router;
 }

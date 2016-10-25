@@ -9,6 +9,9 @@
     "start": "node .",
     "watch": "nodemon ."
   },
+  "engines": {
+  "node": "6.4.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fblanton/buymy.sh.git"

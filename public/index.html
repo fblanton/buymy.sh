@@ -1,8 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
   <head>
     <meta charset="utf-8">
-    <title>Hello World</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="app.js"></script>
+    <div ng-controller="Shops as shops">
+      <h1>{{ shops.message }}</h1>
+      <ul>
+        <li ng-repeat="shop in shops.list">
+          {{shop.title}}
+        </li>
+      </ul>
+    </div>
   </head>
   <body>
     <h1>Hello World</h1>

@@ -1,1 +1,4 @@
-angular.module('app')
+/* global angular */
+
+angular
+  .module('app', [])

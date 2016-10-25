@@ -1,11 +1,6 @@
 /* global angular */
 
 angular
-  .module('app', [])
-
-/* global angular */
-
-angular
   .module('app')
   .factory('dataservice', dataservice)
 
@@ -42,23 +37,4 @@ function dataservice($http) {
       .delete(url)
       .then(r => r.data)
   }
-}
-
-/* global angular */
-
-angular
-  .module('app')
-  .controller('Shops', Shops)
-
-Shops.$inject = ['dataservice']
-
-function Shops(dataservice) {
-  const vm = this
-
-  vm.message = 'Hello Angular!'
-  vm.list = []
-
-  dataservice
-    .read('/ops')
-    .then(list => vm.list = list)
 }

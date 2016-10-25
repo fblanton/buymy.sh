@@ -6,8 +6,6 @@ Shops.$inject = ['dataservice']
 
 function Shops(dataservice) {
   const vm = this
-
-  vm.message = 'Hello Angular!'
   vm.list = []
 
   dataservice

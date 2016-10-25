@@ -1,5 +1,3 @@
-/* global angular */
-
 angular
   .module('app')
   .controller('Shops', Shops)

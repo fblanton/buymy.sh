@@ -1,5 +1,3 @@
-/* global angular */
-
 angular
   .module('app', [])
 
@@ -43,8 +41,6 @@ function dataservice($http) {
       .then(r => r.data)
   }
 }
-
-/* global angular */
 
 angular
   .module('app')

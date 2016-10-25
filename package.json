@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha",
     "tdd": "mocha -w -R nyan",
-    "start": "node .",
+    "start": "gulp js && node .",
     "watch": "nodemon ."
   },
   "engines": {
@@ -30,8 +30,6 @@
   "homepage": "https://github.com/fblanton/buymy.sh#readme",
   "devDependencies": {
     "chai": "^3.5.0",
-    "gulp": "^3.9.1",
-    "gulp-concat": "^2.6.0",
     "mocha": "^3.1.2"
   },
   "dependencies": {
@@ -39,6 +37,8 @@
     "body-parser": "^1.15.2",
     "eslint": "3.6.1",
     "express": "^4.14.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
     "joi": "^9.2.0",
     "lintspaces-cli": "0.4.0",
     "mongodb": "^2.2.11",

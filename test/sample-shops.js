@@ -3,20 +3,20 @@ const ObjectId = require('mongodb').ObjectID;
 module.exports = {
   preload: [
     { _id: ObjectId(),
-      shop_id: 1,
-      shop_name: 'teststore1',
+      shopId: 1,
+      shopName: 'teststore1',
       title: 'Test Store 1' },
     { _id: ObjectId(),
-      shop_id: 2,
-      shop_name: 'teststore2',
+      shopId: 2,
+      shopName: 'teststore2',
       title: 'Test Store 2' }
   ],
   create: [
+    { _id: ObjectId().toString(), // will be sent over JSON so need string
+      shopName: 'teststore3',
+      title: 'Test Store 3' },
     { _id: ObjectId(),
-      shop_name: 'teststore1', // name conflict -> fail to create
-      title: 'Test Store 1' },
-    { _id: ObjectId().toString(),
-      shop_name: 'teststore3',
-      title: 'Test Store 3' }
+      shopName: 'teststore1', // name conflict -> fail to create
+      title: 'Test Store 1' }
   ]
 }

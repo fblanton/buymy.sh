@@ -41,11 +41,22 @@ describe('buymy.sh', function() {
     done();
   })
 
-  describe('GET /', () => {
-    it('recieves an index.html file from the server', done => {
-      request(TEST_URL, (err) => {
+  describe('POST /ops { newShop }', () => {
+    it('creates a shop', done => {
+      request.post(TEST_URL + '/ops', { json: sampleShops.create[0] }, (err, res, body) => {
         expect(err).to.be.null;
-        done()
+        expect(body).to.include(sampleShops.create[0]);
+        done();
+      })
+    })
+  })
+
+  describe('POST /ops { existingShopName }', () => {
+    it('fails to create a shop', done => {
+      request.post(TEST_URL + '/ops', { json: sampleShops.create[1] }, (err, res, body) => {
+        expect(err).to.be.null;
+        expect(body).to.equal('Internal Server Error');
+        done();
       })
     })
   })

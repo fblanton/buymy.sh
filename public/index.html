@@ -18,8 +18,9 @@
 
         </div>
         <div class="col-xs-10">
-          <div ng-controller="Shops as shops">
-            <shop-listing ng-repeat="shop in shops.list" shop="shop"></shop-listing>
+          <div ng-controller="ShopsList as shops">
+            <shop-listing ng-repeat="shop in shops.list" shop="shop">
+            </shop-listing>
           </div>
         </div>
       </div>

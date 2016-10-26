@@ -1,10 +1,10 @@
 angular
   .module('app')
-  .controller('Shops', Shops)
+  .controller('ShopsList', ShopsList)
 
-Shops.$inject = ['dataservice']
+ShopsList.$inject = ['dataservice']
 
-function Shops(dataservice) {
+function ShopsList(dataservice) {
   const vm = this
   vm.list = []
 

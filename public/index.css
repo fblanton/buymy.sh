@@ -1,0 +1,6 @@
+.hero {
+  background-image: url('//res.cloudinary.com/hfnywmsw0/image/upload/w_1200/shops-app-hero.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 600px;
+}

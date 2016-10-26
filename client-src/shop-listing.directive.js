@@ -11,10 +11,14 @@ function shopListing() {
 
   function template() {
     return `
-    <div>
-      <h1>{{ shop.title }}</h1>
-      <h3>{{ shop.shopName }}</h3>
-      <p>{{ shop.shopId }}</p>
+    <div class="card">
+      <img class="card-img-top img-fluid" src="http://placehold.it/390x180">
+      <div class="card-block">
+        <h4 class="card-title">{{ shop.title }}</h4>
+        <p class="card-text">
+          {{ shop.description }}
+        </p>
+      </div>
     </div>
     `
   }

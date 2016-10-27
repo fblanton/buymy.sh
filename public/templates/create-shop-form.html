@@ -1,14 +1,39 @@
-<form>
+<form novalidate name="create">
   <div class="form-group row">
     <label for="title" class="col-sm-2 col-form-label">Title</label>
     <div class="col-sm-10">
-      <input ng-model="form.title" type="text" class="form-control" name="title">
+      <input
+        ng-model="form.title"
+        ng-minlength="5"
+        ng-maxlength="30"
+        type="text"
+        class="form-control"
+        name="title"
+        required
+      >
     </div>
   </div>
   <div class="form-group row">
     <label for="description" class="col-sm-2 col-form-label">Description</label>
     <div class="col-sm-10">
-      <input ng-model="form.description" type="text" class="form-control" name="description">
+      <textarea
+        ng-model="form.description"
+        ng-minlength="15"
+        ng-maxlength="500"
+        type="text-area"
+        class="form-control"
+        name="description"
+        required
+      ></textarea>
     </div>
+  </div>
+  <div ng-show="!!form.message.status" class="form-group">
+    <div class="alert alert-{{ form.message.status }}" role="alert">
+      {{ form.message.phrase }}
+    </div>
+  </div>
+  <div class="form-group float-xs-right clearfix">
+    <button ng-click="form.handleCancel()" type="cancel" class="btn btn-secondary">Cancel</button>
+    <button ng-click="form.handleSubmit()" ng-disabled="create.$invalid" type="submit" class="btn btn-primary">Create</button>
   </div>
 </form>

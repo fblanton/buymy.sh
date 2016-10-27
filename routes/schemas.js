@@ -5,6 +5,7 @@ module.exports = {
     _id: Joi.string(),
     shopId: Joi.number().integer(),
     shopName: Joi.string().regex(/^\S*$/).required(),
-    title: Joi.string()
+    title: Joi.string().required(),
+    description: Joi.string().required()
   })
 }

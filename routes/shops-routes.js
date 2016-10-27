@@ -8,13 +8,13 @@ module.exports = db => {
 
   router.post('/', (req, res, next) => {
     postSchema.validate(req.body, (err, value) => {
-      if (err) next(err)
+      if (err) return next(err)
 
       shops
         .find({ shopName: value.shopName })
         .toArray()
         .then(result => {
-          if (result.length > 0) { next('Name Already Exists') }
+          if (result.length > 0) { return next('Name Already Exists') }
           else {
             shops
               .insertOne(value)
@@ -37,7 +37,7 @@ module.exports = db => {
   router.get('/:identifier', (req, res, next) => {
     let { identifier } = req.params;
     let searchKey;
-    
+
     if (Number(identifier)) {
       searchKey = 'shopId';
       identifier = Number(identifier)

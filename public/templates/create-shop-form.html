@@ -44,7 +44,10 @@
       {{ form.message.phrase }}
     </div>
   </div>
-  <div class="form-group float-xs-right clearfix">
+  <div
+    ng-show="form.message.status !== 'success'"
+    class="form-group float-xs-right clearfix"
+  >
     <button ng-click="form.handleCancel()" type="cancel" class="btn btn-secondary">Cancel</button>
     <button ng-click="form.handleSubmit()" ng-disabled="create.$invalid || create.$pending" type="submit" class="btn btn-primary">Create</button>
   </div>

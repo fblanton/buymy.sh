@@ -6,10 +6,10 @@ module.exports = db => {
   const router = new Router();
   const shops = db.collection('shops');
 
-  router.post('/:checkTitle', (req, res, next) => {
-    const { checkTitle } = req.params
+  router.post('/:shopName', (req, res, next) => {
+    const { shopName } = req.params
     shops
-      .find({ shopName: checkTitle})
+      .find({ shopName })
       .toArray()
       .then(result => {
         if (result.length > 0) { res.json({ available: false }) }

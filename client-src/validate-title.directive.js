@@ -1,18 +1,3 @@
-// angular
-//   .module('app')
-//   .directive('validTitle', validTitle)
-//
-// function validTitle() {
-//   return {
-//     require: 'ngModel',
-//     restrict: 'A',
-//     link: function(scope, elm, attrs, controller) {
-//
-//     }
-//   }
-// }
-
-
 angular
   .module('app')
   .directive('validTitle', validTitle)
@@ -24,8 +9,10 @@ function validTitle(dataservice) {
       ctrl.$asyncValidators.validTitle = function(title) {
         if (title === '') return Promise.resolve()
 
+        const name =  title.toString().replace(/\s/g, '').toLowerCase()
+console.log(name)
         return dataservice
-          .checkTitle('ops/' + title)
+          .checkTitle('ops/' + name)
           .then(response => {
             if (response.available) {
               return Promise.resolve()

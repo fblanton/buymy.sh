@@ -1,2 +1,5 @@
 angular
-  .module('app', ['ui.bootstrap'])
+  .module('app', ['ui.router'])
+  .config($urlRouterProvider => {
+    $urlRouterProvider.otherwise('/')
+  })

@@ -2,27 +2,16 @@
 <html lang="en" ng-app="app">
   <head>
     <meta charset="utf-8">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="http://unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="app.js"></script>
   </head>
   <body>
-    <div class="jumbotron jumbotron-fluid hero">
-      <div class="container">
-        <h1>Buy My Sh.ops</h1>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="card-columns" ng-controller="ShopsList as shops">
-            <shop-listing ng-repeat="shop in shops.list" shop="shop">
-            </shop-listing>
-            <span ng-show="!shops.list.length">No Shops</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    <nav-bar></nav-bar>
+    <ui-view></ui-view>
   </body>
 </html>

@@ -11,13 +11,15 @@ function dataservice($http) {
     create,
     read,
     update,
-    remove
+    remove,
+    checkTitle
   }
 
   function create(url, item) {
     return $http
       .post(url, item)
       .then(r => r.data)
+
   }
 
   function read(url) {
@@ -35,6 +37,12 @@ function dataservice($http) {
   function remove(url) {
     return $http
       .delete(url)
+      .then(r => r.data)
+  }
+
+  function checkTitle(url) {
+    return $http
+      .post(url)
       .then(r => r.data)
   }
 }

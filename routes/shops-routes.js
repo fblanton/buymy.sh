@@ -6,6 +6,18 @@ module.exports = db => {
   const router = new Router();
   const shops = db.collection('shops');
 
+  router.post('/:checkTitle', (req, res, next) => {
+    const { checkTitle } = req.params
+    shops
+      .find({ shopName: checkTitle})
+      .toArray()
+      .then(result => {
+        if (result.length > 0) { res.json({ available: false }) }
+        else { res.json({ available: true }) }
+      })
+      .catch(next)
+  })
+
   router.post('/', (req, res, next) => {
     postSchema.validate(req.body, (err, value) => {
       if (err) return next(err)

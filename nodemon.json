@@ -1,3 +1,3 @@
 {
-  "ignore": ["./server/public/dist"]
+  "ignore": ["client/", "server/public"]
 }

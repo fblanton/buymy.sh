@@ -6,8 +6,8 @@
   "scripts": {
     "test": "mocha",
     "tdd": "mocha -w -R nyan",
-    "start": "gulp deploy && node server/",
-    "watch": "gulp watch & nodemon server/"
+    "start": "gulp deploy && node ./server/",
+    "watch": "gulp watch & nodemon ./server/"
   },
   "engines": {
     "node": "6.4.0"

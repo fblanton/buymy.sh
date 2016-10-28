@@ -1,0 +1,67 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1>Buy My Sh.ops</h1>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 offset-sm-2">
+      <h3>Create a New Shop</h3>
+      <hr />
+      <form novalidate name="create">
+        <div ng-class="{
+          'form-group': true, row: true,
+          'has-success': create.title.$valid,
+          'has-danger': create.title.$error.validTitle,
+          'has-feeback': true
+        }">
+          <label for="title" class="col-sm-2 col-form-label">Title</label>
+          <div class="col-sm-10">
+            <input
+              ng-model="form.title"
+              ng-minlength="5"
+              ng-maxlength="30"
+              type="text"
+              ng-class="{
+                'form-control': true,
+                'form-control-success': create.title.$valid,
+                'form-control-danger': create.title.$error.validTitle
+              }"
+              name="title"
+              valid-title
+              required
+            >
+            <span class="form-control-feedback" ng-show="create.title.$valid">Available</span>
+            <span class="form-control-feedback" ng-show="create.title.$error.validTitle">Unavailable</span>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="description" class="col-sm-2 col-form-label">Description</label>
+          <div class="col-sm-10">
+            <textarea
+              ng-model="form.description"
+              ng-minlength="15"
+              ng-maxlength="500"
+              type="text-area"
+              class="form-control"
+              name="description"
+              required
+            ></textarea>
+          </div>
+        </div>
+        <div ng-show="!!form.message.status" class="form-group">
+          <div class="alert alert-{{ form.message.status }}" role="alert">
+            {{ form.message.phrase }}
+          </div>
+        </div>
+        <div
+          ng-show="form.message.status !== 'success'"
+          class="form-group float-xs-right clearfix"
+        >
+          <button ng-click="form.handleCancel()" type="cancel" class="btn btn-secondary">Cancel</button>
+          <button ng-click="form.handleSubmit()" ng-disabled="create.$invalid || create.$pending" type="submit" class="btn btn-primary">Create</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

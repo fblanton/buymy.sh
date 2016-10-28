@@ -1,10 +1,10 @@
 angular
   .module('app')
-  .controller('CreateShopForm', CreateShopForm)
+  .controller('CreateShop', CreateShop)
 
-CreateShopForm.$inject = ['dataservice', '$scope']
+CreateShop.$inject = ['dataservice', '$scope']
 
-function CreateShopForm(dataservice, $scope) {
+function CreateShop(dataservice, $scope) {
   const vm = this
 
   vm.description = ''

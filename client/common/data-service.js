@@ -1,5 +1,3 @@
-/* global angular */
-
 angular
   .module('app')
   .factory('dataservice', dataservice)

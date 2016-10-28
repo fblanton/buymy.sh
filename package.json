@@ -6,8 +6,8 @@
   "scripts": {
     "test": "mocha",
     "tdd": "mocha -w -R nyan",
-    "start": "gulp js && node .",
-    "watch": "nodemon ."
+    "start": "gulp deploy && node server/",
+    "watch": "gulp watch & nodemon server/"
   },
   "engines": {
     "node": "6.4.0"
@@ -39,6 +39,7 @@
     "express": "^4.14.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
+    "gulp-flatten": "^0.3.1",
     "joi": "^9.2.0",
     "lintspaces-cli": "0.4.0",
     "mongodb": "^2.2.11",

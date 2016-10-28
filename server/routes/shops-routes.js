@@ -72,7 +72,7 @@ module.exports = db => {
   }
 
   function attachShop(req, res, next, shopName) {
-    req.body.shopName = shopName;
+    req.query.shopName = shopName;
     next();
   }
 }

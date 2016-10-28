@@ -22,11 +22,8 @@ module.exports = db => {
   }
 
   function read(req, res, next) {
-    const { shopName } = req.body
-    const filter = (shopName) ? { shopName } : {}
-
     items
-      .find(filter)
+      .find(req.query)
       .toArray()
       .then(located => res.json(located))
       .catch(next)

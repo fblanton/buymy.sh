@@ -3,6 +3,7 @@ angular
   .directive('validTitle', validTitle)
 
 function validTitle(dataservice) {
+  const { shops } = dataservice
   return {
     require: 'ngModel',
     link: function(scope, elm, attrs, ctrl) {
@@ -11,8 +12,8 @@ function validTitle(dataservice) {
 
         const name =  title.toString().replace(/\s/g, '').toLowerCase()
 
-        return dataservice
-          .checkTitle('ops/' + name)
+        return shops
+          .checkTitle(name)
           .then(response => {
             if (response.available) {
               return Promise.resolve()

@@ -4,7 +4,7 @@ const { expect } = require('chai');
 const MongoClient = require('mongodb');
 const request = require('request');
 
-const createApp = require('../create-app');
+const createApp = require('../server/create-app');
 
 const TEST_PORT = 1338;
 const TEST_URL = 'http://localhost:' + TEST_PORT;

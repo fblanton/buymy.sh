@@ -8,5 +8,5 @@ module.exports = db =>
   express()
   .use(express.static('server/public/dist'))
   .use(jsonParser)
-  .use('/ops', shopsRoutes(db))
+  .use('/api/shops', shopsRoutes(db))
   .use(errorRoute)

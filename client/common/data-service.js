@@ -6,11 +6,13 @@ dataservice.$inject = ['$http']
 
 function dataservice($http) {
   return {
-    create,
-    read,
-    update,
-    remove,
-    checkTitle
+    shops: {
+      create: item => create('api/shops', item),
+      read: () => read('api/shops'),
+      update: item => update('api/shops', item),
+      remove: item => remove('api/shops' + item),
+      checkTitle: title => checkTitle('api/shops/' + title)
+    }
   }
 
   function create(url, item) {

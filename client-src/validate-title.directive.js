@@ -10,7 +10,7 @@ function validTitle(dataservice) {
         if (title === '') return Promise.resolve()
 
         const name =  title.toString().replace(/\s/g, '').toLowerCase()
-console.log(name)
+
         return dataservice
           .checkTitle('ops/' + name)
           .then(response => {

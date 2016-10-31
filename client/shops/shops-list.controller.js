@@ -6,9 +6,10 @@ ShopsList.$inject = ['dataservice']
 
 function ShopsList(dataservice) {
   const vm = this
+  const { shops } = dataservice
   vm.list = []
 
-  dataservice
-    .read('/ops')
+  shops
+    .read()
     .then(list => vm.list = list)
 }

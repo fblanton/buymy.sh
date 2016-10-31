@@ -6,6 +6,7 @@ CreateShop.$inject = ['dataservice', '$scope']
 
 function CreateShop(dataservice, $scope) {
   const vm = this
+  const { shops } = dataservice
 
   vm.description = ''
   vm.title = ''
@@ -22,8 +23,8 @@ function CreateShop(dataservice, $scope) {
   }
 
   function handleSubmit() {
-    dataservice
-      .create('/ops', {
+    shops
+      .create({
         shopName: vm.name,
         title: vm.title,
         description: vm.description

@@ -7,7 +7,7 @@ module.exports = db => {
   const items = db.collection('items')
 
   return new Router()
-    .param('_id', queryId)
+    .param('_id', idParamToQuery)
     .post('/', create)
     .get('/', read)
     .get('/:_id', read)
@@ -60,7 +60,7 @@ module.exports = db => {
       .catch(next)
   }
 
-  function queryId(req, res, next, _id) {
+  function idParamToQuery(req, res, next, _id) {
     try {
       req.query._id = ObjectId(_id)
     } catch (err) {

@@ -1,5 +1,5 @@
 <div class="card-columns">
-  <card ng-repeat="shop in shops.list" vm="shop">
+  <card ng-repeat="shop in shops.list" vm="shop" ui-sref="viewShop({ shopName: shop.shopName })">
   </card>
   <span ng-show="!shops.list.length">No Shops</span>
 </div>

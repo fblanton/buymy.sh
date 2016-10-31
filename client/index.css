@@ -5,3 +5,14 @@
   background-position: center;
   height: 400px;
 }
+
+.shop-hero {
+  height: 100%;
+}
+
+.shop-header {
+  text-align: center;
+  position: relative;
+  bottom: -50%;
+  transform: translateY(-50%);
+}

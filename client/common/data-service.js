@@ -7,11 +7,14 @@ dataservice.$inject = ['$http']
 function dataservice($http) {
   return {
     shops: {
-      create: item => create('api/shops', item),
-      read: () => read('api/shops'),
-      update: item => update('api/shops', item),
-      remove: item => remove('api/shops' + item),
+      create: shop => create('api/shops', shop),
+      read: shop => read('api/shops', shop),
+      update: shop => update('api/shops', shop),
+      remove: shop => remove('api/shops/' + shop),
       checkTitle: title => checkTitle('api/shops/' + title)
+    },
+    items: {
+      shopItems: shop => read(`api/shops/${shop}/items`)
     }
   }
 
@@ -22,9 +25,9 @@ function dataservice($http) {
 
   }
 
-  function read(url) {
+  function read(url, identifier) {
     return $http
-      .get(url)
+      .get(url + ((identifier) ? ('/' + identifier) : ''))
       .then(r => r.data)
   }
 

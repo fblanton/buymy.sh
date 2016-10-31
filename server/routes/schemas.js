@@ -13,5 +13,9 @@ module.exports = {
     shopName: Joi.string().regex(/^\S*$/).required(),
     title: Joi.string().required(),
     description: Joi.string().required()
+  }),
+  itemUpdateSchema: Joi.object().keys({
+    title: Joi.string().required(),
+    description: Joi.string().required()
   })
 }

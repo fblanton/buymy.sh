@@ -9,7 +9,15 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <card class="col-md-3" ng-repeat="item in shop.items" vm="item">
+      <card
+      ng-repeat="item in shop.items"
+      vm="item"
+      details="['title', 'price']"
+      class="col-md-3">
+      </card>
+      <card class="col-md-3"
+        vm="{title: 'Add an Item'}"
+        details="['title']">
       </card>
     </div>
   </div>

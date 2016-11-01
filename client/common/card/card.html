@@ -1,9 +1,10 @@
 <div class="card">
   <img class="card-img-top img-fluid" src="http://placehold.it/390x180">
   <div class="card-block">
-    <h4 class="card-title">{{ vm.title }}</h4>
-    <p class="card-text">
-      {{ vm.description }}
-    </p>
+    <div
+      ng-repeat="detail in details"
+      class="card-{{ detail }}">
+      {{ vm[detail] }}
+    </div>
   </div>
 </div>

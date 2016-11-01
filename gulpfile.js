@@ -19,8 +19,8 @@ gulp.task('templates', () => {
     .pipe(gulp.dest('./server/public/dist/templates/'))
 })
 
-gulp.task('watch', ['js', 'index', 'templates'], () => {
-  gulp.watch('client/', ['js', 'index', 'templates'])
-})
+gulp.task('watch', ['js', 'index', 'templates'], () =>
+  gulp.watch('client/**/*.*', ['js', 'index', 'templates'])
+)
 
 gulp.task('deploy', ['js', 'index', 'templates'])

@@ -1,18 +1,48 @@
 <div class="jumbotron jumbotron-fluid hero">
   <div class="container shop-hero">
-    <div class="shop-header">
+    <div class="shop-header pointer" ui-sref="Shop({ shopName: item.shopName })">
       <h1>{{ item.shop.title }}</h1>
       <h5>{{ item.shop.description }}</h5>
     </div>
+
   </div>
 </div>
 <div class="container">
+  <div class="row offset-bottom">
+    <div class="col-xs-12">
+      <div class="offset-bottom"><a ui-sref="Shop({ shopName: item.shopName })">All {{ item.shop.title }} Items</a></div>
+    </div>
+  </div>
+  <div class="row offset-bottom">
+    <div class="col-md-8">
+      <img src="http://placehold.it/500x375" class="rounded mx-auto d-block img-fluid offset-bottom">
+    </div>
+    <div class="col-md-4">
+      <h5 class="item-title" ng-bind-html="item.title"></h5>
+      <div class="offset-bottom">by <a ui-sref="Shop({ shopName: item.shopName })">{{ item.shop.title }}</a></div>
+      <h5>{{ item.price | currency:'$' }}</h5>
+      <h6>Materials</h6>
+      <ul>
+        <li ng-repeat="material in item.materials">
+          {{ material }}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row offset-bottom">
+    <div class="col-md-8">
+      <h4>Description</h4>
+      <div style="white-space: pre-line;" ng-bind-html="item.description"></div>
+    </div>
+  </div>
   <div class="row">
     <div class="col-xs-12">
-      
-      <pre>
-        {{ item | json }}
-      </pre>
+      <h6>Tags</h6>
+      <ul class="item-tags">
+        <li class="rounded" ng-repeat="tag in item.tags">
+          {{ tag }}
+        </li>
+      </ul>
     </div>
   </div>
 </div>

@@ -13,11 +13,8 @@
       ng-repeat="item in shop.items"
       vm="item"
       details="['title', 'price']"
-      class="col-md-3">
-      </card>
-      <card class="col-md-3"
-        vm="{title: 'Add an Item'}"
-        details="['title']">
+      class="col-md-3"
+      ui-sref="Item({ shopName: shop.shopName, itemId: item._id })">
       </card>
     </div>
   </div>

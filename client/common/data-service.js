@@ -14,7 +14,8 @@ function dataservice($http) {
       checkTitle: title => checkTitle('api/shops/' + title)
     },
     items: {
-      shopItems: shop => read(`api/shops/${shop}/items`)
+      shopItems: shop => read(`api/shops/${shop}/items`),
+      details: (shop, item) => read(`api/shops/${shop}/items/${item}`)
     }
   }
 

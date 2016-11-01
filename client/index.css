@@ -1,9 +1,9 @@
 .hero {
   background-image: url('//res.cloudinary.com/hfnywmsw0/image/upload/w_1200/shops-app-hero.jpg');
   background-size: cover;
-  background-attachment: fixed;
   background-position: center;
   height: 400px;
+  margin-top: 50px;
 }
 
 .shop-hero {
@@ -15,10 +15,32 @@
   position: relative;
   bottom: -50%;
   transform: translateY(-50%);
+  background-color: rgba(255,255,255,.75);
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 
 .card-title {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.offset-bottom {
+  margin-bottom: 1em;
+}
+
+.item-tags {
+  padding: 0;
+}
+
+.item-tags > li {
+  display: inline-block;
+  padding: .4em;
+  margin: .3em;
+  background-color: lightblue;
+}
+
+.pointer {
+  cursor: pointer;
 }

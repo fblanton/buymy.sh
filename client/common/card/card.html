@@ -1,10 +1,9 @@
-<div class="card">
+<div class="card pointer">
   <img class="card-img-top img-fluid" src="http://placehold.it/390x180">
   <div class="card-block">
     <div
       ng-repeat="detail in details"
-      class="card-{{ detail }}">
-      {{ vm[detail] }}
+      class="card-{{ detail }}" ng-bind-html="vm[detail]">
     </div>
   </div>
 </div>

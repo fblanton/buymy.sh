@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <card
+      ng-repeat="item in shop.items"
+      vm="item"
+      details="['title', 'price']"
+      class="col-md-3"
+      ui-sref="Item({ shopName: shop.shopName, itemId: item._id })">
+      </card>
+    </div>
+  </div>
+</div>

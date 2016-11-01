@@ -1,0 +1,24 @@
+<div class="jumbotron jumbotron-fluid hero">
+  <div class="container shop-hero">
+    <div class="shop-header">
+      <h1>{{ shop.title }}</h1>
+      <h5>{{ shop.description }}</h5>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <card
+      ng-repeat="item in shop.items"
+      vm="item"
+      details="['title', 'price']"
+      class="col-md-3">
+      </card>
+      <card class="col-md-3"
+        vm="{title: 'Add an Item'}"
+        details="['title']">
+      </card>
+    </div>
+  </div>
+</div>

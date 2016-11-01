@@ -4,8 +4,8 @@ angular
 
 function card() {
   return {
-    restrict: 'E',
-    scope: { vm: '=' },
+    restrict: 'AE',
+    scope: { vm: '=', details: '=' },
     templateUrl: 'templates/card.html'
   }
 }

@@ -4,6 +4,7 @@ angular
     const Shop = {
       name: 'Shop',
       url: '/shops/:shopName',
+      abstract: true,
       templateUrl: 'templates/shop.html',
       controller: 'Shop as shop'
     }

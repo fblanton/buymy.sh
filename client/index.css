@@ -49,3 +49,7 @@
 .pointer {
   cursor: pointer;
 }
+
+.card-img-top.img-fluid {
+  min-width: 100%;
+}

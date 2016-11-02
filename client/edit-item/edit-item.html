@@ -51,8 +51,8 @@
         <div class="row">
           <div class="col-xs-12">
             <span>
-              <button class="btn btn-primary" type="button" name="button" ng-click="edit.save()">Save</button>
-              <button class="btn btn-secondary" type="button" name="button">Cancel</button>
+              <button class="btn btn-primary" type="button" name="button" ng-click="edit.save()" ng-disabled="itemForm.$invalid">Save</button>
+              <button class="btn btn-secondary" type="button" name="button" ng-click="edit.cancel()">Cancel</button>
             </span>
 
             <span class="float-xs-right">

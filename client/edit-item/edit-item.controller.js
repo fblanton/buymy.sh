@@ -24,8 +24,9 @@ function EditItem($stateParams, shop, items, ngMeta, dataservice) {
   }
   if (items) vm.item = items.find(item => item._id === itemId)
 
-  vm.save = save
   vm.message = {status: false, phrase: ''}
+  vm.save = save
+  vm.cancel = cancel
 
   vm.item.price = Number(vm.item.price)
   vm.item.title = decodeHTML(vm.item.title)
@@ -44,7 +45,14 @@ function EditItem($stateParams, shop, items, ngMeta, dataservice) {
           phrase: 'Item successfully updated.'
         }
       })
-      .catch(err => console.error(err))
+      .catch(() => vm.message = {
+        status: 'danger',
+        phrase: 'Unable to update item.'
+      })
+  }
+
+  function cancel() {
+    window.history.back()
   }
 
   function decodeHTML(html) {

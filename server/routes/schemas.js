@@ -16,6 +16,9 @@ module.exports = {
   }),
   itemUpdateSchema: Joi.object().keys({
     title: Joi.string().required(),
-    description: Joi.string().required()
+    description: Joi.string().required(),
+    tags: Joi.array(),
+    materials: Joi.array(),
+    price: Joi.number()
   })
 }

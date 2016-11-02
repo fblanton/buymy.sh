@@ -1,58 +1,72 @@
 <div class="container">
-  <div class="row offset-bottom">
-    <div class="col-md-3">
-      <div class="row offset-bottom">
-        <div class="col-xs-12">
-          <img src="//placehold.it/500x375" class="img-fluid offset-bottom" alt="">
-          <button class="mx-auto d-block btn btn-secondary" type="button" name="button">Choose Image</button>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-9">
+  <div class="row">
+    <div class="offset-xl-1 col-xl-10">
       <form name="itemForm">
-        <div class="form-group row">
-          <label for="item-title" class="col-xs-2 col-form-label">Title</label>
-          <div class="col-xs-8">
-            <input class="form-control" type="text" name="item-title" ng-model="item.title" required>
+        <div class="row">
+          <div class="col-sm-4">
+            <img src="//placehold.it/500x375" class="full img-fluid offset-bottom" alt="">
+            <button class="mx-auto d-block btn btn-secondary" type="button" name="button" disabled>Choose Image</button>
+          </div>
+          <div class="col-sm-8">
+              <div class="form-group row">
+                <label for="item-title" class="col-md-2 col-form-label">Title</label>
+                <div class="col-md-10">
+                  <input class="form-control" type="text" name="item-title" ng-model="edit.item.title" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="item-materials" class="col-md-2 col-form-label">Materials</label>
+                <div class="col-md-10">
+                  <input class="form-control" type="text" name="item-materials" ng-model="edit.item.materials" ng-list required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="item-tags" class="col-md-2 col-form-label">Tags</label>
+                <div class="col-md-10">
+                  <input class="form-control" type="text" name="item-tags" ng-model="edit.item.tags" ng-list required>
+                </div>
+              </div>
+              <div class="form-group row has-feeback" ng-class="{
+                'has-danger': itemForm.price.$invalid,
+                'has-success': itemForm.price.$valid && itemForm.price.$dirty
+              }">
+                <label for="price" class="col-md-2 col-form-label">Price ($)</label>
+                <div class="col-md-10">
+                  <input class="form-control" type="number" name="price" step=".01" ng-model="edit.item.price" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" required ng-class="{
+                    'form-control-success': itemForm.price.$valid,
+                    'form-control-danger': itemForm.price.$invalid
+                  }">
+                </div>
+              </div>
           </div>
         </div>
-        <div class="form-group row">
-          <label for="item-materials" class="col-xs-2 col-form-label">Materials</label>
-          <div class="col-xs-8">
-            <input class="form-control" type="text" name="item-materials" ng-model="item.materials" ng-list required>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea class="form-control" name="description" rows="16" ng-model="edit.item.description"></textarea>
+            </div>
           </div>
         </div>
-        <div class="form-group row">
-          <label for="item-tags" class="col-xs-2 col-form-label">Tags</label>
-          <div class="col-xs-8">
-            <input class="form-control" type="text" name="item-tags" ng-model="item.tags" ng-list required>
-          </div>
-        </div>
-        <div class="form-group row has-feeback" ng-class="{
-          'has-danger': itemForm.price.$invalid,
-          'has-success': itemForm.price.$valid && itemForm.price.$dirty
-        }">
-          <label for="price" class="col-xs-2 col-form-label">Price ($) {{itemForm.price.$invalid}}</label>
-          <div class="col-xs-8">
-            <input class="form-control" type="number" name="price" step=".01" ng-model="item.price" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" required ng-class="{
-              'form-control-success': itemForm.price.$valid,
-              'form-control-danger': itemForm.price.$invalid
-            }">
+        <div class="row">
+          <div class="col-xs-12">
+            <span>
+              <button class="btn btn-primary" type="button" name="button" ng-click="edit.save()">Save</button>
+              <button class="btn btn-secondary" type="button" name="button">Cancel</button>
+            </span>
+
+            <span class="float-xs-right">
+              <button class="btn btn-danger" type="button" name="button">Delete Item</button>
+            </span>
+
           </div>
         </div>
       </form>
     </div>
   </div>
   <div class="row offset-bottom">
-    <div class="col-xs-12">
-      <button class="btn btn-primary" type="button" name="button">Save</button>
-      <button class="btn btn-secondary" type="button" name="button">Cancel</button>
-      <button class="btn btn-link" type="button" name="button">Delete Item</button>
-    </div>
-  </div>
-  <div class="row offset-bottom">
     <div class="col-md-8">
-      <pre>{{ item | json}}</pre>
+      <pre>{{ edit | json}}</pre>
     </div>
   </div>
 </div>

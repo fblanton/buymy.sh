@@ -37,8 +37,9 @@ module.exports = db => {
   function update(req, res, next) {
     itemUpdateSchema.validate(req.body, (err, value) => {
       if (err) return next(err)
+
       items
-        .updateOne(req.query, value)
+        .updateOne(req.query, {$set: value})
         .then(({result: { nModified: ok }}) => {
           if (!ok) return res.sendStatus(404)
           items

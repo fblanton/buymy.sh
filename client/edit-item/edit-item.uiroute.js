@@ -5,7 +5,7 @@ angular
       name: 'Shop.EditItem',
       url: '/items/:itemId/edit',
       templateUrl: 'templates/edit-item.html',
-      controller: 'EditItem as item'
+      controller: 'EditItem as edit'
     }
 
     $stateProvider.state(EditItem)

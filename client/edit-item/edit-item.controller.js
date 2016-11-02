@@ -2,7 +2,7 @@ angular
   .module('app')
   .controller('EditItem', EditItem)
 
-function EditItem($stateParams, shop, items, ngMeta) {
+function EditItem($stateParams, shop, items, ngMeta, dataservice) {
   const { itemId } = $stateParams
   const vm = this
 
@@ -12,21 +12,44 @@ function EditItem($stateParams, shop, items, ngMeta) {
     description: '',
     shopName: ''
   }
-
   if (shop) vm.shop = shop
 
-  vm._id = ''
-  vm.title = ''
-  vm.description = ''
-  vm.tags = []
-  vm.materials = []
-  vm.price = 1
-  vm.shopName = ''
+  vm.item = {
+    _id: '',
+    title: '',
+    description: '',
+    tags: [],
+    materials: [],
+    price: 1
+  }
+  if (items) vm.item = items.find(item => item._id === itemId)
 
-  if (items) Object.assign(vm, items.find(item => item._id === itemId))
+  vm.save = save
+  vm.message = {status: false, phrase: ''}
 
-  vm.price = Number(vm.price)
+  vm.item.price = Number(vm.item.price)
+  vm.item.title = decodeHTML(vm.item.title)
 
-  ngMeta.setTitle(shop.title + ' | ' + vm.title)
-  ngMeta.setTag('description', vm.description.substring(0,200) + '...')
+  ngMeta.setTitle(shop.title + ' | ' + vm.item.title)
+  ngMeta.setTag('description', vm.item.description.substring(0,200) + '...')
+
+  function save() {
+    const { title, description, tags, materials, price } = vm.item
+    dataservice.items
+      .update(vm.item._id, { title, description, tags, materials, price })
+      .then(updated => {
+        vm.item = updated
+        vm.message = {
+          status: 'success',
+          phrase: 'Item successfully updated.'
+        }
+      })
+      .catch(err => console.error(err))
+  }
+
+  function decodeHTML(html) {
+    let text = document.createElement('textarea')
+    text.innerHTML = html
+    return text.value
+  }
 }

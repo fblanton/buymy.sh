@@ -15,7 +15,8 @@ function dataservice($http) {
     },
     items: {
       shopItems: shop => read(`api/shops/${shop}/items`),
-      details: (shop, item) => read(`api/shops/${shop}/items/${item}`)
+      details: (shop, item) => read(`api/shops/${shop}/items/${item}`),
+      update: (item, payload) => update(`api/items/${item}`, payload)
     }
   }
 

@@ -6,14 +6,6 @@ function EditItem($stateParams, shop, items, ngMeta, dataservice) {
   const { itemId } = $stateParams
   const vm = this
 
-  vm.shop = {
-    _id: '',
-    title: '',
-    description: '',
-    shopName: ''
-  }
-  if (shop) vm.shop = shop
-
   vm.item = {
     _id: '',
     title: '',
@@ -22,17 +14,31 @@ function EditItem($stateParams, shop, items, ngMeta, dataservice) {
     materials: [],
     price: 1
   }
-  if (items) vm.item = items.find(item => item._id === itemId)
-
-  vm.message = {status: false, phrase: ''}
+  vm.message = {
+    status: false,
+    phrase: ''
+  }
+  vm.shop = {
+    _id: '',
+    title: '',
+    description: '',
+    shopName: ''
+  }
   vm.save = save
   vm.cancel = cancel
 
-  vm.item.price = Number(vm.item.price)
-  vm.item.title = decodeHTML(vm.item.title)
+  init()
 
-  ngMeta.setTitle(shop.title + ' | ' + vm.item.title)
-  ngMeta.setTag('description', vm.item.description.substring(0,200) + '...')
+  function init() {
+    if (shop) vm.shop = shop
+    if (items) vm.item = items.find(item => item._id === itemId)
+
+    vm.item.price = Number(vm.item.price)
+    vm.item.title = decodeHTML(vm.item.title)
+
+    ngMeta.setTitle(`Edit | ${shop.title} | ${vm.item.title}`)
+    ngMeta.setTag('description', vm.item.description.substring(0,200) + '...')
+  }
 
   function save() {
     const { title, description, tags, materials, price } = vm.item

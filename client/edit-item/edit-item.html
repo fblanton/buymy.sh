@@ -4,7 +4,7 @@
       <form name="itemForm">
         <div class="row">
           <div class="col-sm-4">
-            <img src="//placehold.it/500x375" class="full img-fluid offset-bottom" alt="">
+            <img src="//placehold.it/500x375" class="full rounded img-fluid offset-bottom" alt="">
             <button class="mx-auto d-block btn btn-secondary" type="button" name="button" disabled>Choose Image</button>
           </div>
           <div class="col-sm-8">
@@ -54,19 +54,12 @@
               <button class="btn btn-primary" type="button" name="button" ng-click="edit.save()" ng-disabled="itemForm.$invalid">Save</button>
               <button class="btn btn-secondary" type="button" name="button" ng-click="edit.cancel()">Cancel</button>
             </span>
-
             <span class="float-xs-right">
               <button class="btn btn-danger" type="button" name="button">Delete Item</button>
             </span>
-
           </div>
         </div>
       </form>
-    </div>
-  </div>
-  <div class="row offset-bottom">
-    <div class="col-md-8">
-      <pre>{{ edit | json}}</pre>
     </div>
   </div>
 </div>

@@ -1,3 +1,4 @@
+.shop-hero,
 .hero {
   background-image: url('//res.cloudinary.com/hfnywmsw0/image/upload/w_1200/shops-app-hero.jpg');
   background-size: cover;
@@ -7,6 +8,10 @@
 }
 
 .shop-hero {
+  height: 200px;
+}
+
+.shop-hero > .container {
   height: 100%;
 }
 

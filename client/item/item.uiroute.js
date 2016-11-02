@@ -2,8 +2,8 @@ angular
   .module('app')
   .config($stateProvider => {
     const Item = {
-      name: 'Item',
-      url: '/shops/:shopName/items/:itemId',
+      name: 'Shop.Item',
+      url: '/items/:itemId',
       templateUrl: 'templates/item.html',
       controller: 'Item as item'
     }

@@ -2,9 +2,7 @@ angular
   .module('app')
   .controller('ShopsList', ShopsList)
 
-ShopsList.$inject = ['dataservice']
-
-function ShopsList(dataservice) {
+function ShopsList(dataservice, ngMeta) {
   const vm = this
   const { shops } = dataservice
   vm.list = []
@@ -12,4 +10,6 @@ function ShopsList(dataservice) {
   shops
     .read()
     .then(list => vm.list = list)
+
+  ngMeta.setTitle('BuyMy Shops')
 }

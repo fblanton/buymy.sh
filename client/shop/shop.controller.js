@@ -2,21 +2,9 @@ angular
   .module('app')
   .controller('Shop', Shop)
 
-Shop.$inject = ['dataservice', '$scope', '$stateParams']
-
-function Shop(dataservice, $scope, $stateParams) {
-  const { items, shops } = dataservice
-  const { shopName } = $stateParams
+function Shop($scope, shop, items) {
   const vm = this
+  vm.items = items
 
-  vm.title = ''
-  vm.items = []
-
-  shops
-    .read(shopName)
-    .then(shop => Object.assign(vm, shop))
-
-  items
-    .shopItems(shopName)
-    .then(items => vm.items = items)
+  Object.assign(vm, shop)
 }

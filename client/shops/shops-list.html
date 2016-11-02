@@ -3,7 +3,7 @@
     ng-repeat="shop in shops.list"
     vm="shop"
     details="['title']"
-    ui-sref="Shop({ shopName: shop.shopName })">
+    ui-sref="Shop.Items({ shopName: shop.shopName })">
   </card>
   <span ng-show="!shops.list.length">No Shops</span>
 </div>

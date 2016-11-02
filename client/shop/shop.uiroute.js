@@ -16,6 +16,7 @@ angular
           dataservice.items
             .shopItems($stateParams.shopName)
             .then(items => items)
+            .catch(() => [])
       }
     }
 

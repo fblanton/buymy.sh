@@ -8,6 +8,7 @@
       class="col-md-3"
       ui-sref="Shop.Item({ shopName: shop.shopName, itemId: item._id })">
       </card>
+      <span ng-show="!shop.items.length">No Items</span>
     </div>
   </div>
 </div>

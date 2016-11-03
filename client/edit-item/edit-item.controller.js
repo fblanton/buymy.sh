@@ -35,6 +35,7 @@ function EditItem($stateParams, shop, items, ngMeta, dataservice) {
 
     vm.item.price = Number(vm.item.price)
     vm.item.title = decodeHTML(vm.item.title)
+    vm.item.description = decodeHTML(vm.item.description)
 
     ngMeta.setTitle(`Edit | ${shop.title} | ${vm.item.title}`)
     ngMeta.setTag('description', vm.item.description.substring(0,200) + '...')

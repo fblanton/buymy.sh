@@ -50,6 +50,10 @@
   cursor: pointer;
 }
 
+.full {
+  min-width: 100%
+}
+
 .card-img-top.img-fluid {
   min-width: 100%;
 }

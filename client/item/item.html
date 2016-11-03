@@ -10,8 +10,11 @@
     </div>
     <div class="col-md-4">
       <h5 class="item-title" ng-bind-html="item.title"></h5>
-      <div class="offset-bottom">by <a ui-sref="Shop.Items({ shopName: item.shopName })">{{ item.shop.title }}</a></div>
-      <h5>{{ item.price | currency:'$' }}</h5>
+      <div>by <a ui-sref="Shop.Items({ shopName: item.shopName })">{{ item.shop.title }}</a></div>
+      <div class="offset-bottom">
+        <a ui-sref="Shop.EditItem({ shopName: shop.shopName, itemId: item._id })">(edit item)</a>
+      </div>
+      <h5 class="offset-bottom">{{ item.price | currency:'$' }}</h5>
       <h6>Materials</h6>
       <ul>
         <li ng-repeat="material in item.materials">

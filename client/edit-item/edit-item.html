@@ -45,7 +45,7 @@
             </div>
           </div>
         </div>
-        <div class="row offset-bottom" ng-show="edit.message.status">
+        <div class="row offset-bottom" ng-show="edit.message.status && itemForm.$pristine">
           <div class="col-xs-12">
             <div class="form-group">
               <div class="alert alert-{{ edit.message.status }}" role="alert">

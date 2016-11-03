@@ -2,7 +2,7 @@ angular
   .module('app')
   .controller('EditItem', EditItem)
 
-function EditItem($state, $stateParams, shop, items, ngMeta, dataservice) {
+function EditItem($scope, $state, $stateParams, shop, items, ngMeta, dataservice) {
   const { shopName, itemId } = $stateParams
   const vm = this
 
@@ -54,6 +54,7 @@ function EditItem($state, $stateParams, shop, items, ngMeta, dataservice) {
           status: 'success',
           phrase: 'Item successfully updated.'
         }
+        if ($scope.itemForm) $scope.itemForm.$setPristine();
       })
       .catch(() => vm.message = {
         status: 'danger',

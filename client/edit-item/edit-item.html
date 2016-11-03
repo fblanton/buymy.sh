@@ -1,50 +1,44 @@
 <div class="container">
   <div class="row">
     <div class="offset-xl-1 col-xl-10">
-      <form name="itemForm">
+      <form name="itemForm" input-feedback>
         <div class="row">
           <div class="col-sm-4">
             <img src="//placehold.it/500x375" class="full rounded img-fluid offset-bottom" alt="">
             <button class="mx-auto d-block btn btn-secondary" type="button" name="button" disabled>Choose Image</button>
           </div>
           <div class="col-sm-8">
-              <div class="form-group row">
-                <label for="item-title" class="col-md-2 col-form-label">Title</label>
+              <div class="form-group row" has-feedback="title">
+                <label for="title" class="col-md-2 col-form-label">Title</label>
                 <div class="col-md-10">
-                  <input class="form-control" type="text" name="item-title" ng-model="edit.item.title" required>
+                  <input class="form-control" type="text" name="title" ng-model="edit.item.title" required>
                 </div>
               </div>
-              <div class="form-group row">
-                <label for="item-materials" class="col-md-2 col-form-label">Materials</label>
+              <div class="form-group row" has-feedback="materials">
+                <label for="materials" class="col-md-2 col-form-label">Materials</label>
                 <div class="col-md-10">
-                  <input class="form-control" type="text" name="item-materials" ng-model="edit.item.materials" ng-list required>
+                  <input class="form-control" type="text" name="materials" ng-model="edit.item.materials" ng-list required>
                 </div>
               </div>
-              <div class="form-group row">
-                <label for="item-tags" class="col-md-2 col-form-label">Tags</label>
+              <div class="form-group row" has-feedback="tags">
+                <label for="tags" class="col-md-2 col-form-label">Tags</label>
                 <div class="col-md-10">
-                  <input class="form-control" type="text" name="item-tags" ng-model="edit.item.tags" ng-list required>
+                  <input class="form-control" type="text" name="tags" ng-model="edit.item.tags" ng-list required>
                 </div>
               </div>
-              <div class="form-group row has-feeback" ng-class="{
-                'has-danger': itemForm.price.$invalid,
-                'has-success': itemForm.price.$valid && itemForm.price.$dirty
-              }">
+              <div class="form-group row" has-feedback="price">
                 <label for="price" class="col-md-2 col-form-label">Price ($)</label>
                 <div class="col-md-10">
-                  <input class="form-control" type="number" name="price" step=".01" ng-model="edit.item.price" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" required ng-class="{
-                    'form-control-success': itemForm.price.$valid,
-                    'form-control-danger': itemForm.price.$invalid
-                  }">
+                  <input class="form-control" type="number" name="price" step=".01" ng-model="edit.item.price" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" required>
                 </div>
               </div>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <div class="form-group">
+            <div class="form-group" has-feedback="description">
               <label for="description">Description</label>
-              <textarea class="form-control" name="description" rows="16" ng-model="edit.item.description"></textarea>
+              <textarea class="form-control" name="description" rows="16" ng-model="edit.item.description" required></textarea>
             </div>
           </div>
         </div>

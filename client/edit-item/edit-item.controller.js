@@ -2,8 +2,8 @@ angular
   .module('app')
   .controller('EditItem', EditItem)
 
-function EditItem($stateParams, shop, items, ngMeta, dataservice) {
-  const { itemId } = $stateParams
+function EditItem($state, $stateParams, shop, items, ngMeta, dataservice) {
+  const { shopName, itemId } = $stateParams
   const vm = this
 
   vm.item = {
@@ -59,7 +59,7 @@ function EditItem($stateParams, shop, items, ngMeta, dataservice) {
   }
 
   function cancel() {
-    window.history.back()
+    $state.go('Shop.Item', { shopName, itemId })
   }
 
   function decodeHTML(html) {

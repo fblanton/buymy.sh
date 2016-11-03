@@ -8,48 +8,58 @@
             <button class="mx-auto d-block btn btn-secondary" type="button" name="button" disabled>Choose Image</button>
           </div>
           <div class="col-sm-8">
-              <div class="form-group row" has-feedback="title">
+              <div class="form-group row" feedback-for="title">
                 <label for="title" class="col-md-2 col-form-label">Title</label>
                 <div class="col-md-10">
                   <input class="form-control" type="text" name="title" ng-model="edit.item.title" required>
                 </div>
               </div>
-              <div class="form-group row" has-feedback="materials">
+              <div class="form-group row" feedback-for="materials">
                 <label for="materials" class="col-md-2 col-form-label">Materials</label>
                 <div class="col-md-10">
                   <input class="form-control" type="text" name="materials" ng-model="edit.item.materials" ng-list required>
+                  <small class="form-text text-muted">Comma separated list of materials.</small>
                 </div>
               </div>
-              <div class="form-group row" has-feedback="tags">
+              <div class="form-group row" feedback-for="tags">
                 <label for="tags" class="col-md-2 col-form-label">Tags</label>
                 <div class="col-md-10">
                   <input class="form-control" type="text" name="tags" ng-model="edit.item.tags" ng-list required>
+                  <small class="form-text text-muted">Comma separated list of tags.</small>
                 </div>
               </div>
-              <div class="form-group row" has-feedback="price">
+              <div class="form-group row" feedback-for="price">
                 <label for="price" class="col-md-2 col-form-label">Price ($)</label>
                 <div class="col-md-10">
                   <input class="form-control" type="number" name="price" step=".01" ng-model="edit.item.price" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" required>
+                  <small class="form-text text-muted">Numbers ony.</small>
                 </div>
               </div>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <div class="form-group" has-feedback="description">
+            <div class="form-group" feedback-for="description">
               <label for="description">Description</label>
               <textarea class="form-control" name="description" rows="16" ng-model="edit.item.description" required></textarea>
+                <small class="form-text text-muted">*Note: All fields are required.</small>
+            </div>
+          </div>
+        </div>
+        <div class="row offset-bottom" ng-show="edit.message.status">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <div class="alert alert-{{ edit.message.status }}" role="alert">
+                {{ edit.message.phrase }} <a ui-sref="Shop.Item({ shopName: edit.item.shopName, itemId: edit.item._id })">View item.</a>
+              </div>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-12">
             <span>
-              <button class="btn btn-primary" type="button" name="button" ng-click="edit.save()" ng-disabled="itemForm.$invalid || itemForm.$pristine">Save</button>
+              <button class="btn btn-primary" type="button" name="button" ng-click="edit.save()" ng-disabled="itemForm.$invalid">Save</button>
               <button class="btn btn-secondary" type="button" name="button" ng-click="edit.cancel()">Cancel</button>
-            </span>
-            <span class="float-xs-right">
-              <button class="btn btn-danger" type="button" name="button">Delete Item</button>
             </span>
           </div>
         </div>

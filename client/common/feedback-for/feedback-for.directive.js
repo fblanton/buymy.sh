@@ -1,8 +1,8 @@
 angular
   .module('app')
-  .directive('hasFeedback', hasFeedback)
+  .directive('feedbackFor', feedbackFor)
 
-function hasFeedback() {
+function feedbackFor() {
   return {
     restrict: 'A',
     require: '^form',
@@ -10,7 +10,7 @@ function hasFeedback() {
   }
 
   function link(scope, element, attrs, { $name }) {
-    const observe = $name + '.' + attrs.hasFeedback
+    const observe = $name + '.' + attrs.feedbackFor
     element.toggleClass('has-feeback', true)
     scope.$watchCollection(observe, ({ $touched, $valid, $dirty }) => {
       element.toggleClass('has-success', ($dirty || $touched) && $valid)

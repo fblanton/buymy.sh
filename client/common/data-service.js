@@ -16,7 +16,8 @@ function dataservice($http) {
     items: {
       shopItems: shop => read(`api/shops/${shop}/items`),
       details: (shop, item) => read(`api/shops/${shop}/items/${item}`),
-      update: (item, payload) => update(`api/items/${item}`, payload)
+      update: (item, payload) => update(`api/items/${item}`, payload),
+      create: item => create(`api/items`, item)
     }
   }
 
@@ -24,7 +25,6 @@ function dataservice($http) {
     return $http
       .post(url, item)
       .then(r => r.data)
-
   }
 
   function read(url, identifier) {

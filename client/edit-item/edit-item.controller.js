@@ -32,7 +32,7 @@ function EditItem($state, $stateParams, shop, items, ngMeta, dataservice) {
   function init() {
     if (shop) vm.shop = shop
     if (items) {
-      vm.shopItem = items.find(item => item._id === itemId)
+      vm.shopItem = items.find(item => item._id === itemId) || {}
       vm.item = Object.assign({}, vm.shopItem)
     }
 
@@ -46,23 +46,44 @@ function EditItem($state, $stateParams, shop, items, ngMeta, dataservice) {
 
   function save() {
     const { title, description, tags, materials, price } = vm.item
-    dataservice.items
-      .update(vm.item._id, { title, description, tags, materials, price })
-      .then(updated => {
-        Object.assign(vm.shopItem, updated)
-        vm.message = {
-          status: 'success',
-          phrase: 'Item successfully updated.'
-        }
-      })
-      .catch(() => vm.message = {
-        status: 'danger',
-        phrase: 'Unable to update item.'
-      })
+
+    if (vm.item._id) {
+      dataservice.items
+        .update(vm.item._id, { title, description, tags, materials, price })
+        .then(updated => {
+          Object.assign(vm.shopItem, updated)
+          vm.message = {
+            status: 'success',
+            phrase: 'Item successfully updated.'
+          }
+        })
+        .catch(() => vm.message = {
+          status: 'danger',
+          phrase: 'Unable to update item.'
+        })
+    } else {
+      dataservice.items
+        .create({ title, description, tags, materials, price, shopName: vm.shop.shopName })
+        .then(updated => {
+          Object.assign(vm.shopItem, updated)
+          Object.assign(vm.item, updated)
+          items.push(vm.shopItem)
+          vm.message = {
+            status: 'success',
+            phrase: 'Item successfully created.'
+          }
+        })
+        .catch(() => vm.message = {
+          status: 'danger',
+          phrase: 'Unable to create item.'
+        })
+    }
   }
 
   function cancel() {
-    $state.go('Shop.Item', { shopName, itemId })
+    (vm.item._id) ?
+      $state.go('Shop.Item', { shopName, itemId: vm.item._id }) :
+      $state.go('Shop.Items', { shopName })
   }
 
   function decodeHTML(html) {

@@ -3,6 +3,8 @@
     Target Customer: Millennial Entrepreneur
     Goal: Market Homemade Goods
     Description: An app for entrepreneurs who want to market their goods on their own website
+    
+<img width="964" alt="screen shot 2016-11-09 at 1 08 30 pm" src="https://cloud.githubusercontent.com/assets/3937557/20154778/d791ec8e-a67d-11e6-9d83-c4969d84dfad.png">
 
 #### Merchant Features
 * ... create a shop
